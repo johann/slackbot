@@ -26,9 +26,7 @@ try drop.setup()
 
 try drop.run()
 
-try drop.client.socket.connect(to: "") { ws in
-    
-}
+
 
 
 
