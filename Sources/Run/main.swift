@@ -1,5 +1,7 @@
 import App
-
+import Vapor
+import HTTP
+import TLS
 /// We have isolated all of our App's logic into
 /// the App module because it makes our app
 /// more testable.
@@ -23,3 +25,14 @@ let drop = try Droplet(config)
 try drop.setup()
 
 try drop.run()
+
+try drop.client.socket.connect(to: "") { ws in
+    
+}
+
+
+
+
+
+
+
