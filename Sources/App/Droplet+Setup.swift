@@ -9,9 +9,15 @@ extension Droplet {
         try setupRoutes()
         // Do any additional droplet setup
         
+        guard let token = config["slack-token"]?.string else  { return }
+        
+        print(token)
+        print(config)
+        
+        
         
         let query: [String: NodeRepresentable] = [
-            "token": Slack.Config.BotToken,
+            "token": token,
             "simple_latest": true,
             "no_unreads": true
         ]

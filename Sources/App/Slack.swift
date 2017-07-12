@@ -8,7 +8,7 @@
 
 struct Slack {
     struct Config {
-        static let BotToken = "xoxb-140190668422-5eXeUuW7x4Cg2bUbM8Q7f7MI"
+        //static let BotToken = 
         static let SimpleLatest = true
         static let NoUnreads = true
     }
