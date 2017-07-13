@@ -9,7 +9,7 @@ extension Droplet {
         try setupRoutes()
         // Do any additional droplet setup
         
-        guard let token = config["develop", "slack-token"]?.string else  { return }
+        guard let token = config["slack", "slack-token"]?.string else  { return }
         
         print(token)
         print(config)

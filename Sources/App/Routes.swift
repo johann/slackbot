@@ -9,7 +9,7 @@ extension Droplet {
         }
 
         get("plaintext") { req in
-            if let token = self.config["slack-token"]?.string {
+            if let token = self.config["slack", "slack-token"]?.string {
                 return token
             } else {
                 return self.config.environment.description
