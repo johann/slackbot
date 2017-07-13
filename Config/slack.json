@@ -1,3 +1,4 @@
 {
-  "slack-token": "$slack-token"
+    "slack-token": "$slack-token",
+    "name": "name"
 }
