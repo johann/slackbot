@@ -9,34 +9,35 @@ extension Droplet {
         try setupRoutes()
         // Do any additional droplet setup
         
-        guard let token = config["slack", "slack-token"]?.string else  { return }
-        
-        print(token)
-        print(config)
-        
-        
-        
-        let query: [String: NodeRepresentable] = [
-            "token": token,
-            "simple_latest": true,
-            "no_unreads": true
-        ]
-        let response = try client.get("https://slack.com/api/rtm.start", query: query, ["Accept": "application/json;charset=utf-8"], nil, through: [])
-        if let webSocketURL = response.data["url"]?.string {
-            
-            try client.socket.connect(to: webSocketURL) { ws in
-                ws.onText = { ws, text in
-                    
-                    print(text)
+        if let token = config["slack","name"]?.string {
+            print(token)
+            let query: [String: NodeRepresentable] = [
+                "token": token,
+                "simple_latest": true,
+                "no_unreads": true
+            ]
+            let response = try client.get("https://slack.com/api/rtm.start", query: query, ["Accept": "application/json;charset=utf-8"], nil, through: [])
+            if let webSocketURL = response.data["url"]?.string {
+                
+                try client.socket.connect(to: webSocketURL) { ws in
+                    ws.onText = { ws, text in
+                        
+                        print(text)
+                    }
                 }
+                
+                
+                
+                
+            } else {
+                print("url")
             }
-            
-  
-
-            
         } else {
-            print("url")
+            print("couldn't find")
         }
+        
+        
+    
         
 
     }
