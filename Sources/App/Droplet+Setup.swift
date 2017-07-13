@@ -9,7 +9,7 @@ extension Droplet {
         try setupRoutes()
         // Do any additional droplet setup
         
-        if let token = config["slack","name"]?.string {
+        if let token = config["slack","slack-token"]?.string {
             print(token)
             let query: [String: NodeRepresentable] = [
                 "token": token,
